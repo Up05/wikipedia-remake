@@ -14,6 +14,15 @@
         main {
             justify-self: center;
         }        
+    
+        pre {
+            white-space: pre-wrap;
+        }
+
+
+        .add {
+            background: #7f05;    
+        }
 
     </style>
 </head>
@@ -42,12 +51,42 @@
     <div id=modes><a href=article.html>Skaityti</a> <a href=edit.html>Redaguoti</a></div>
     <hr>
 
-    <p> Kompiuterių tinkluose, IPoAC yra siūlomas interneto protokolas skirtas transportuoti IP paketus paukščių, kaip naminių balandžių, pagalba. IPoAC buvo iš pradžių apibrėžtas <a href="https://www.rfc-editor.org/rfc/rfc1149">RFC 1149</a> Deivido Waltzmano iš IETF. Vėliau protokolas buvo patobulintas <a href="https://www.rfc-editor.org/rfc/rfc2549">RFC 2549</a> ir 2011 m. integruotas su IPv6 RFC 6214. </p>
+    <div id=temp style="width: max-content">
+        <label>Ieškoti pagal: </label> <br>
+        <style>
+            #temp { display: grid; grid-template-columns: max-content auto }
+            #temp label { column: 1; } 
+            #temp input { column: 2; justify-self: end; } 
+        </style>
+        <label>Turinį:</label> <input name=author>             
+        <label>Autorių:</label> <input name=author>            
+        <label>Datą (nuo):</label> <input name=from type=date> 
+        <label>Datą (iki):</label> <input name=to   type=date> 
 
-    <h1>Įgyvendinimas</h1>
-    <p> 2011 m. IPoAC buvo įgyvendintas <a href="https://blug.linux.no/">Bergeno Linux grupės narių</a>. Buvo išsiūsti devyni paketai, maždaug 5 kilometrų atstumu. Kiekvieną ICMP (ping) tipo paketą nešė atskiras balandis. Pabaigoje buvo gauti keturi paketai. </p>
+    </div>
+
+    <hr>
+
+    <details>
+        <summary>Jonas_Petraitis 2016-09-15 (Kiti būsimi skyriai)</summary>
+        <pre class="history add">
+<h1>Rizika</h1>
+<p class=lorem></p>
+<h1>Kiti pluksnuotojų duomenų perdavimo metodai</h1>
+<p class=lorem></p>
+        </pre>        
+    </details>
+
+
+
+    <details>
+        <summary>Jonas_Petraitis 2016-09-12 (Įgyvendinimo skyrius)</summary>
+        <pre class="history add">
+
+<h1>Įgyvendinimas</h1>
+<p> 2011 m. IPoAC buvo įgyvendintas <a href="https://blug.linux.no/">Bergeno Linux grupės narių</a>. Buvo išsiūsti devyni paketai, maždaug 5 kilometrų atstumu. Kiekvieną ICMP (ping) tipo paketą nešė atskiras balandis. Pabaigoje buvo gauti keturi paketai. </p>
     
-    <pre>
+<pre>
 Script started on Sat Apr 28 11:24:09 2001
 $ /sbin/ifconfig tun0
 tun0      Link encap:Point-to-Point Protocol
@@ -70,17 +109,31 @@ PING 10.0.3.1 (10.0.3.1): 56 data bytes
 round-trip min/avg/max = 3211900.8/5222806.6/6388671.9 ms
 
 Script done on Sat Apr 28 14:14:28 2001
-    </pre>
-    
-    <h1>Rizika</h1>
-    
-    <p class=lorem />
-    
-    <h1>Kiti pluksnuotojų duomenų perdavimo metodai</h1>
+</pre>
 
-    <p class=lorem />
+
+        </pre>        
+    </details>
+    
+    <details>
+        <summary>Jonas_Petraitis 2016-09-10 (Pradinis)</summary>
+        <pre class="history add">
+        <p> Kompiuterių tinkluose, IPoAC yra siūlomas interneto protokolas skirtas transportuoti IP paketus paukščių, kaip naminių balandžių, pagalba. IPoAC buvo iš pradžių apibrėžtas <a href="https://www.rfc-editor.org/rfc/rfc1149">RFC 1149</a> Deivido Waltzmano iš IETF. Vėliau protokolas buvo patobulintas <a href="https://www.rfc-editor.org/rfc/rfc2549">RFC 2549</a> ir 2011 m. integruotas su IPv6 RFC 6214. </p>
+        </pre>        
+    </details>
+
 
     </main>
+    
+
+    <script>
+
+        const elements = document.getElementsByClassName("history")
+        for(let i = 0; i < elements.length; i ++) {
+            elements.item(i).innerText = elements.item(i).innerHTML.trim()
+        }
+
+    </script>
 
     <script>
     document.onclick = function(event) {
@@ -90,21 +143,5 @@ Script done on Sat Apr 28 14:14:28 2001
             else              document.location = link
         }
     }   
-    </script>
-
-    <script defer>
-
-        const LOREM = 
-`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui ac sapien tempor egestas in ac quam. Curabitur ut pretium magna, non malesuada tellus. Aliquam scelerisque rhoncus efficitur. Vestibulum commodo, magna sit amet scelerisque pulvinar, ipsum turpis egestas magna, quis fringilla massa quam sit amet tellus. Nullam ligula ipsum, blandit vitae metus a, aliquam ullamcorper tortor. Sed rhoncus congue purus, vitae elementum urna lobortis eu. Donec lobortis scelerisque faucibus. Curabitur rhoncus mauris ut nunc vestibulum dapibus. Donec cursus felis risus, sed efficitur diam eleifend nec. Phasellus cursus est orci, vel ultricies tortor cursus sed. Sed ut pulvinar risus, a gravida ante. Integer convallis id nibh sed semper. Fusce quam sem, porttitor quis sapien a, scelerisque convallis leo.
-
-Morbi risus nulla, sollicitudin id rutrum in, iaculis ac nibh. Nulla mollis urna ac dolor luctus malesuada ac eget tellus. Vestibulum eu ante vel felis hendrerit consectetur vel id ipsum. Morbi nisi orci, tristique et felis nec, sollicitudin cursus ex. Donec non lorem leo. Nunc a turpis suscipit, scelerisque ligula at, efficitur tortor. Nunc volutpat lacinia nibh quis semper. Suspendisse at ultrices metus. Nunc elementum lacus in pulvinar volutpat. Donec venenatis quam at purus pharetra, vel mollis nibh finibus.
-
-Nam eleifend, neque et ornare laoreet, nisl diam pharetra elit, eu congue dolor purus sed odio. Nunc commodo, enim ut facilisis lobortis, justo nisl faucibus nunc, eget tempor eros lorem a lacus. Pellentesque ultricies porttitor dignissim. Curabitur feugiat justo vitae augue sollicitudin rutrum. Sed sit amet blandit turpis. Vestibulum sit amet vehicula orci. Quisque sollicitudin justo tincidunt varius commodo. Aliquam erat volutpat. Nulla in leo erat. Nulla facilisi.`
-
-        const elements = document.getElementsByClassName("lorem")
-        for(let i = 0; i < elements.length; i ++) {
-            elements.item(i).innerText = LOREM
-        }
-
     </script>
 </body>

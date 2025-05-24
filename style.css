@@ -3,7 +3,7 @@ body {
 }
 
 nav {
-    background: lightgray;
+    backdrop-filter: brightness(80%);
     height: max-content;
 
     display: grid;

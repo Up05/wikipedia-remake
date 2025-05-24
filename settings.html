@@ -5,11 +5,12 @@
     <link rel="icon" type="image/x-icon" href="logo.png">
     <link rel="stylesheet" href="style.css">
     <style>
+
         body {
             display: grid;
             min-height: 97vh;
             grid-template-rows: min-content auto;
-        }
+       }
 
 
         main {
@@ -48,8 +49,8 @@
 
         <h1>Stilius:</h1>
         <div> <input type=radio name=mode checked> Automatinis </div> 
-        <div> <input type=radio name=mode> Šviesus </div>
-        <div> <input type=radio name=mode> Tamsus </div> 
+        <div> <input type=radio name=mode oninput="light_mode()"> Šviesus </div>
+        <div> <input type=radio name=mode oninput="dark_mode()" > Tamsus </div> 
         <div> <input placeholder="gruvbox"> <a href=""> kiti stiliai </a> </div>
 
         <h1>Naudotojo stilius:</h1>
@@ -64,12 +65,11 @@
 * {
     background: none !important;
     background-size: contain !important;
-    background-image: url(https://www.startpage.com/av/proxy-image?piurl=https%3A%2F%2Fart.pixilart.com%2F4b680819d6447f3.gif&sp=1748078142T92c2d2ec308725eead81cd62b86e5b2ab7597506bc99842d8e9859ad6b7af0dd) !important;   
+    background-image: url(https://www.icegif.com/wp-content/uploads/nyan-cat-icegif-22.gif) !important;   
     color: white;
 }
-</style>
-`           </textarea> 
-            <button onclick="eval(parentElement.querySelector('textarea').value)"> Išbandyti </button> <button> Pasirinkti </button> 
+</style>`   </textarea> 
+            <button onclick="eval(parentElement.querySelector('textarea').value)"> Išbandyti </button> <button> Pritaikyti </button> 
         </details>
 
         <details> 
@@ -77,25 +77,27 @@
             <textarea rows=7>
 // ...
             </textarea> 
-            <button onclick="eval(parentElement.querySelector('textarea').value)"> Išbandyti </button> <button> Pasirinkti </button> </details>
-
-
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <hr>
-        <p>.</p>
-    </main>
-
-
+            <button onclick="eval(parentElement.querySelector('textarea').value)"> Išbandyti </button> <button> Pritaikyti </button> </details>
 
 
     </main>
+
+    <script>
+        function dark_mode() {
+            document.body.style.backgroundColor = "Canvas"
+            document.body.style.color = "CanvasText"
+            document.body.style.colorScheme = "light dark"
+        }
+        
+        function light_mode() {
+            document.body.style.backgroundColor = "Canvas"
+            document.body.style.color = "CanvasText"
+            document.body.style.colorScheme = "light"
+        }
+
+
+    </script>
+
 
     <script>
     document.onclick = function(event) {

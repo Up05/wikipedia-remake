@@ -13,7 +13,21 @@
 
         main {
             justify-self: center;
-        }        
+        }
+
+        textarea {
+            justify-self: center;
+            width: 56vmax;
+        
+        }
+
+        pre {
+            white-space: pre-wrap;
+        }
+
+        .the-title {
+            width: calc(56vmax - 8px);
+        }
 
     </style>
 </head>
@@ -30,33 +44,39 @@
         <a href="../settings.html">Nustatymai</a>
         </div>
     </nav>
-    
+        
+    <main class=content>
+        <input class=the-title value="Interneto protokolas per skraidančius nešėjus">     
+
+        <hr>
+        <a href=article.html>Straipsnis</a> 
+        <a href=discussion.html>Diskusija</a> 
+        <a href=history.html>Pakeitimai</a> 
+        <div id=modes><a href=article.html>Skaityti</a> <a href=edit.html>Redaguoti</a></div>
+        <hr>
+    </main>
+
+    <textarea id=input rows=50></textarea>
+
+    <hr style="width: 60vmax; height: 4px; background: black">
+
     <main class=content>
 
-    <p class=the-title> Interneto protokolas per skraidančius nešėjus </p>     
+<p> Kompiuterių tinkluose, IPoAC yra siūlomas interneto protokolas skirtas transportuoti IP paketus paukščių, kaip naminių balandžių, pagalba. IPoAC buvo iš pradžių apibrėžtas <a href="https://www.rfc-editor.org/rfc/rfc1149">RFC 1149</a> Deivido Waltzmano iš IETF. Vėliau protokolas buvo patobulintas <a href="https://www.rfc-editor.org/rfc/rfc2549">RFC 2549</a> ir 2011 m. integruotas su IPv6 RFC 6214. </p>
 
-    <hr>
-    <a href=article.html>Straipsnis</a> 
-    <a href=discussion.html>Diskusija</a> 
-    <a href=history.html>Pakeitimai</a> 
-    <div id=modes><a href=article.html>Skaityti</a> <a href=edit.html>Redaguoti</a></div>
-    <hr>
+<h1>Įgyvendinimas</h1>
+<p> 2011 m. IPoAC buvo įgyvendintas <a href="https://blug.linux.no/">Bergeno Linux grupės narių</a>. Buvo išsiūsti devyni paketai, maždaug 5 kilometrų atstumu. Kiekvieną ICMP (ping) tipo paketą nešė atskiras balandis. Pabaigoje buvo gauti keturi paketai. </p>
 
-    <p> Kompiuterių tinkluose, IPoAC yra siūlomas interneto protokolas skirtas transportuoti IP paketus paukščių, kaip naminių balandžių, pagalba. IPoAC buvo iš pradžių apibrėžtas <a href="https://www.rfc-editor.org/rfc/rfc1149">RFC 1149</a> Deivido Waltzmano iš IETF. Vėliau protokolas buvo patobulintas <a href="https://www.rfc-editor.org/rfc/rfc2549">RFC 2549</a> ir 2011 m. integruotas su IPv6 RFC 6214. </p>
-
-    <h1>Įgyvendinimas</h1>
-    <p> 2011 m. IPoAC buvo įgyvendintas <a href="https://blug.linux.no/">Bergeno Linux grupės narių</a>. Buvo išsiūsti devyni paketai, maždaug 5 kilometrų atstumu. Kiekvieną ICMP (ping) tipo paketą nešė atskiras balandis. Pabaigoje buvo gauti keturi paketai. </p>
-    
-    <pre>
+<pre>
 Script started on Sat Apr 28 11:24:09 2001
 $ /sbin/ifconfig tun0
 tun0      Link encap:Point-to-Point Protocol
-          inet addr:10.0.3.2  P-t-P:10.0.3.1  Mask:255.255.255.255
-          UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:150  Metric:1
-          RX packets:1 errors:0 dropped:0 overruns:0 frame:0
-          TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
-          collisions:0
-          RX bytes:88 (88.0 b)  TX bytes:168 (168.0 b)
+        inet addr:10.0.3.2  P-t-P:10.0.3.1  Mask:255.255.255.255
+        UP POINTOPOINT RUNNING NOARP MULTICAST  MTU:150  Metric:1
+        RX packets:1 errors:0 dropped:0 overruns:0 frame:0
+        TX packets:2 errors:0 dropped:0 overruns:0 carrier:0
+        collisions:0
+        RX bytes:88 (88.0 b)  TX bytes:168 (168.0 b)
 
 $ ping -c 9 -i 900 10.0.3.1
 PING 10.0.3.1 (10.0.3.1): 56 data bytes
@@ -70,17 +90,43 @@ PING 10.0.3.1 (10.0.3.1): 56 data bytes
 round-trip min/avg/max = 3211900.8/5222806.6/6388671.9 ms
 
 Script done on Sat Apr 28 14:14:28 2001
-    </pre>
-    
-    <h1>Rizika</h1>
-    
-    <p class=lorem />
-    
-    <h1>Kiti pluksnuotojų duomenų perdavimo metodai</h1>
+</pre>
 
-    <p class=lorem />
+<h1>Rizika</h1>
+
+<p class=lorem></p>
+
+<h1>Kiti pluksnuotojų duomenų perdavimo metodai</h1>
+
+<p class=lorem></p>
 
     </main>
+
+
+    <script>
+        input.value = document.querySelectorAll(".content")[1].innerHTML.trim()
+        input.onchange = function(event) {
+            document.querySelectorAll(".content")[1].innerHTML = input.value 
+            assign_lorem()
+        }
+    </script>
+
+    <script>
+        const LOREM = 
+`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui ac sapien tempor egestas in ac quam. Curabitur ut pretium magna, non malesuada tellus. Aliquam scelerisque rhoncus efficitur. Vestibulum commodo, magna sit amet scelerisque pulvinar, ipsum turpis egestas magna, quis fringilla massa quam sit amet tellus. Nullam ligula ipsum, blandit vitae metus a, aliquam ullamcorper tortor. Sed rhoncus congue purus, vitae elementum urna lobortis eu. Donec lobortis scelerisque faucibus. Curabitur rhoncus mauris ut nunc vestibulum dapibus. Donec cursus felis risus, sed efficitur diam eleifend nec. Phasellus cursus est orci, vel ultricies tortor cursus sed. Sed ut pulvinar risus, a gravida ante. Integer convallis id nibh sed semper. Fusce quam sem, porttitor quis sapien a, scelerisque convallis leo.
+
+Morbi risus nulla, sollicitudin id rutrum in, iaculis ac nibh. Nulla mollis urna ac dolor luctus malesuada ac eget tellus. Vestibulum eu ante vel felis hendrerit consectetur vel id ipsum. Morbi nisi orci, tristique et felis nec, sollicitudin cursus ex. Donec non lorem leo. Nunc a turpis suscipit, scelerisque ligula at, efficitur tortor. Nunc volutpat lacinia nibh quis semper. Suspendisse at ultrices metus. Nunc elementum lacus in pulvinar volutpat. Donec venenatis quam at purus pharetra, vel mollis nibh finibus.
+
+Nam eleifend, neque et ornare laoreet, nisl diam pharetra elit, eu congue dolor purus sed odio. Nunc commodo, enim ut facilisis lobortis, justo nisl faucibus nunc, eget tempor eros lorem a lacus. Pellentesque ultricies porttitor dignissim. Curabitur feugiat justo vitae augue sollicitudin rutrum. Sed sit amet blandit turpis. Vestibulum sit amet vehicula orci. Quisque sollicitudin justo tincidunt varius commodo. Aliquam erat volutpat. Nulla in leo erat. Nulla facilisi.`
+
+        function assign_lorem() {
+            const elements = document.getElementsByClassName("lorem")
+            for(let i = 0; i < elements.length; i ++) {
+                elements.item(i).innerText = LOREM
+            }
+        }
+        assign_lorem()
+    </script>
 
     <script>
     document.onclick = function(event) {
@@ -90,21 +136,5 @@ Script done on Sat Apr 28 14:14:28 2001
             else              document.location = link
         }
     }   
-    </script>
-
-    <script defer>
-
-        const LOREM = 
-`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu dui ac sapien tempor egestas in ac quam. Curabitur ut pretium magna, non malesuada tellus. Aliquam scelerisque rhoncus efficitur. Vestibulum commodo, magna sit amet scelerisque pulvinar, ipsum turpis egestas magna, quis fringilla massa quam sit amet tellus. Nullam ligula ipsum, blandit vitae metus a, aliquam ullamcorper tortor. Sed rhoncus congue purus, vitae elementum urna lobortis eu. Donec lobortis scelerisque faucibus. Curabitur rhoncus mauris ut nunc vestibulum dapibus. Donec cursus felis risus, sed efficitur diam eleifend nec. Phasellus cursus est orci, vel ultricies tortor cursus sed. Sed ut pulvinar risus, a gravida ante. Integer convallis id nibh sed semper. Fusce quam sem, porttitor quis sapien a, scelerisque convallis leo.
-
-Morbi risus nulla, sollicitudin id rutrum in, iaculis ac nibh. Nulla mollis urna ac dolor luctus malesuada ac eget tellus. Vestibulum eu ante vel felis hendrerit consectetur vel id ipsum. Morbi nisi orci, tristique et felis nec, sollicitudin cursus ex. Donec non lorem leo. Nunc a turpis suscipit, scelerisque ligula at, efficitur tortor. Nunc volutpat lacinia nibh quis semper. Suspendisse at ultrices metus. Nunc elementum lacus in pulvinar volutpat. Donec venenatis quam at purus pharetra, vel mollis nibh finibus.
-
-Nam eleifend, neque et ornare laoreet, nisl diam pharetra elit, eu congue dolor purus sed odio. Nunc commodo, enim ut facilisis lobortis, justo nisl faucibus nunc, eget tempor eros lorem a lacus. Pellentesque ultricies porttitor dignissim. Curabitur feugiat justo vitae augue sollicitudin rutrum. Sed sit amet blandit turpis. Vestibulum sit amet vehicula orci. Quisque sollicitudin justo tincidunt varius commodo. Aliquam erat volutpat. Nulla in leo erat. Nulla facilisi.`
-
-        const elements = document.getElementsByClassName("lorem")
-        for(let i = 0; i < elements.length; i ++) {
-            elements.item(i).innerText = LOREM
-        }
-
     </script>
 </body>
