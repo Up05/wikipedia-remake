@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vikipedija</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: grid;
+            height: 97vh;
+            grid-template-rows: auto auto;
+        }
+
+
+        #login {
+            justify-self: center;
+            border: gray 1px solid;
+            width: max-content;
+            height: max-content;
+            padding: 8px;
+            &>* { font-size: x-large; display: block; }
+            & a { font-size: medium; font-style: italic; padding-top: 4px; }
+            button { margin-left: auto; margin-right: 0; margin-top: 16px; }
+        }        
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img src="logo_full.png" href="index.html">
+        <div id=search>
+        <input placeholder="Paieška">
+        <button>&#x1F50E;</button>
+        </div>
+        <div>
+        <a href="login.html">Prisijungti</a>
+        <a href="settings.html">Nustatymai</a>
+        </div>
+    </nav>
+    
+    <div id=login>
+        <label>Prisijungimo vardas:</label>
+        <input>
+        <label>Slaptažodis:</label>
+        <input type=password>
+        <button>Prisijungti</button>
+        <a href="register.html">Registracija</a>
+    </div>
+
+    <script>
+    document.onclick = function(event) {
+        if(event.target.tagName == "IMG") {
+            const link = event.target.getAttribute("href")
+            if(event.ctrlKey) window.open(link)
+            else              document.location = link
+        }
+    }   
+    </script>
+</body>

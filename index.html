@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vikipedija</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: grid;
+            grid-template-rows: auto auto;
+        }
+    
+        article {
+            justify-self: center;
+            margin: 1%;
+            border: gray 2px solid;
+            width: 33vmax;
+            height: fit-content;
+            
+            & * {
+                margin: 2px;
+                padding: 0;
+                text-align: center;
+            }
+
+            img { max-width: 33vmax; max-height: 20vw; filter: opacity(80%); }
+            h2 { font-size: large; }
+            p { text-align: justify; }
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img src="logo_full.png" href="index.html">
+        <div id=search>
+        <input placeholder="Paieška">
+        <button>&#x1F50E;</button>
+        </div>
+        <div>
+        <a href="login.html">Prisijungti</a>
+        <a href="settings.html">Nustatymai</a>
+        </div>
+    </nav>
+    
+
+    <article>
+        <div class=summary>
+            <img src="pigeon.jpg" alt="A carrier pigeon" href="ipoac/article.html">
+            <h2>Interneto protokolas per skrendančius nešėjus</h2>
+            <p> Kompiuterių tinkluose, <a href=https://en.wikipedia.org/wiki/IP_over_Avian_Carriers>IPoAC</a> yra siūlomas interneto protokolas skirtas transportuoti IP paketus paukščių, kaip naminių balandžių, pagalba. IPoAC buvo iš pradžių apibrėžtas <a href="https://www.rfc-editor.org/rfc/rfc1149">RFC 1149</a> Deivido Waltzmano iš IETF. Vėliau protokolas buvo patobulintas <a href="https://www.rfc-editor.org/rfc/rfc2549">RFC 2549</a> ir 2011 m. integruotas su IPv6 <a href="https://www.rfc-editor.org/rfc/rfc6214">RFC 6214</a>. </p>
+        </div>
+    </article>
+    
+
+    <article>
+        <div class=summary>
+            <img src="evil-bit.png" alt="Visualization of the evil bit" href="https://en.wikipedia.org/wiki/IP_over_Avian_Carriers">
+            <h2>Blogasis bitas</h2>
+            <p> Kompiuterių tinkluose, <a href=https://en.wikipedia.org/wiki/IP_over_Avian_Carriers>Blogasis bitas</a> yra siūlomas IPv4 papildas. Autorius, Steve'as Bellovimas teigia, jog IPv4 paketų antraštėje turi būti rezervuotas „blogasis bitas“, kurį visi blogi aktoriai pakeistų į 1. Taip galima būtų apsisaugoti nuo kenkėjiškų paketų ir kitų kibernetinio saugumo grėsmių. Deja, tai niekad nebuvo standartizuota IPv4 protokole, tačiau bent 436 svetainės tai realizavo. FreeBSD operacinė sistema ir Google API taip pat įgyvendino šią idėją.
+        </div>
+    </article>
+
+    <article>
+        <div class=summary>
+            <img src="htcpcp-teapot.jpg" alt="HTCPCP teapot server infrastructure" href="https://en.wikipedia.org/wiki/IP_over_Avian_Carriers">
+            <h2>Hiperteksto kavos puodelio valdymo protokolas</h2>
+            <p> Kompiuterių tinkluose, <a href=https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol>Hiperteksto kavos puodelio valdymo protokolas</a> yra įgyvendintas interneto protokolas, skirtas valdyti ir stebėti kavos virdulius. Specifikacija šiam protokolui buvo pirmą kartą publikuota 1998 Lario Masinterio <a href="https://www.rfc-editor.org/rfc/rfc2324">RFC 2324</a>. Vėliau, 2014 m. buvo pasiūlytas protokolo papildas: HTCPCP-TEA kaip <a href="https://datatracker.ietf.org/doc/html/rfc7168">RFC 7168</a> specializuotas arbatoms. 10 metų po pirmos publikacijos Web-Controlled Coffee Consortium (WC3) publikavo HTCPCP žodyną RDF.
+        </div>
+    </article>
+
+    <script>
+    document.onclick = function(event) {
+        if(event.target.tagName == "IMG") {
+            const link = event.target.getAttribute("href")
+            if(event.ctrlKey) window.open(link)
+            else              document.location = link
+        }
+    }   
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+body {
+    background: white;
+}
+
+nav {
+    background: lightgray;
+    height: max-content;
+
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+
+    &>* { justify-self: center; height: min-content; } /* middle element(s) */
+    &>:first-child { justify-self: start; margin-left: 8px; }
+    &>:last-child  { justify-self: end; margin-right: 8px; }
+
+    img {
+        height: 8vh; 
+    }
+
+    #search>* {
+        font-size: 1.5rem;
+    }
+}
+
+img[href] {
+    cursor: pointer;
+}
+
+
+main.content {
+    width: 56vmax;
+    height: max-content;
+    
+    .the-title {
+        font-size: xx-large;
+        margin-block: 2vh;
+    
+    }
+    
+    #modes {
+        width: max-content;
+        display: inline;
+        float: right;
+    }
+    /* taken from Sancarn's friend: https://stackoverflow.com/a/47848620 */
+    details > *:not(summary){ margin: 0; margin-left: 1.2em; }
+}
