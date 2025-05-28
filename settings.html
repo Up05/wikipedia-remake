@@ -10,8 +10,7 @@
             display: grid;
             min-height: 97vh;
             grid-template-rows: min-content auto;
-       }
-
+        }
 
         main {
             justify-self: center;
@@ -23,17 +22,17 @@
             textarea { width: calc(100% - 8px) }
             summary  { font-size: medium; }
         }
-
-
     </style>
+
+    <style id=custom_style> </style>
 </head>
 
 <body>
     <nav>
         <img src="logo_full.png" href="index.html">
         <div id=search>
-        <input placeholder="Paieška">
-        <button>&#x1F50E;</button>
+        <input id=the_search_field placeholder="Paieška" onchange="document.location = `search.html?q=${encodeURI(this.value)}`">
+        <button onclick="document.location = `search.html?q=${encodeURI(the_search_field.value)}`">&#x1F50E;</button>
         </div>
         <div>
         <a href="login.html">Prisijungti</a>
@@ -54,7 +53,7 @@
         <div> <input placeholder="gruvbox"> <a href=""> kiti stiliai </a> </div>
 
         <h1>Naudotojo stilius:</h1>
-        <textarea rows=7> </textarea>
+        <textarea rows=7 onchange="custom_style.innerHTML = this.value"> </textarea>
 
         <h1>Modifikacijos:  <span style="color: red">(būkite atsargūs)</span></h1>
         <i style="font-size: small">*Papildomi skriptai neveiks prisijungimų ir nustatymų puslapiuose</i>

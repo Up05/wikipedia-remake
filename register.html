@@ -30,8 +30,8 @@
     <nav>
         <img src="logo_full.png" href="index.html">
         <div id=search>
-        <input placeholder="Paieška">
-        <button>&#x1F50E;</button>
+        <input id=the_search_field placeholder="Paieška" onchange="document.location = `search.html?q=${this.value}`">
+        <button onchange="document.location = `search.html?q=${encodeURI(the_search_field.value)}`">&#x1F50E;</button>
         </div>
         <div>
         <a href="login.html">Prisijungti</a>

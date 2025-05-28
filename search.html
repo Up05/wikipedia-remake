@@ -8,6 +8,10 @@
         body {
             display: grid;
             grid-template-rows: auto auto;
+
+            hr {
+                width: 33vmax;
+            }
         }
     
         article {
@@ -44,8 +48,9 @@
         <a href="settings.html">Nustatymai</a>
         </div>
     </nav>
-    
 
+
+    <div id=backend hidden>
     <article>
         <div class=summary>
             <img src="pigeon.jpg" alt="A carrier pigeon" href="ipoac/article.html">
@@ -70,6 +75,24 @@
             <p> Kompiuterių tinkluose, <a href=https://en.wikipedia.org/wiki/Hyper_Text_Coffee_Pot_Control_Protocol>Hiperteksto kavos puodelio valdymo protokolas</a> yra įgyvendintas interneto protokolas, skirtas valdyti ir stebėti kavos virdulius. Specifikacija šiam protokolui buvo pirmą kartą publikuota 1998 Lario Masinterio <a href="https://www.rfc-editor.org/rfc/rfc2324">RFC 2324</a>. Vėliau, 2014 m. buvo pasiūlytas protokolo papildas: HTCPCP-TEA kaip <a href="https://datatracker.ietf.org/doc/html/rfc7168">RFC 7168</a> specializuotas arbatoms. 10 metų po pirmos publikacijos Web-Controlled Coffee Consortium (WC3) publikavo HTCPCP žodyną RDF.
         </div>
     </article>
+    </div>
+    
+    <script>
+        const the_query = new URLSearchParams(document.location.search).get("q")
+        for(const article of document.querySelectorAll("#backend article")) {
+            if(article.querySelector("h2").innerText.match(new RegExp(the_query, "i"))) {
+                document.body.appendChild(article)
+            }
+        }
+
+        document.body.appendChild(document.createElement("hr"))
+
+        for(const article of document.querySelectorAll("#backend article")) {
+            if(article.innerText.match(new RegExp(the_query, "i"))) { 
+                document.body.appendChild(article)
+            }
+        }
+    </script>
 
     <script>
     document.onclick = function(event) {
@@ -80,6 +103,5 @@
         }
     }   
     </script>
-
 </body>
 </html>
