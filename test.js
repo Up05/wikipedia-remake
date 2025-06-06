@@ -1,4 +1,6 @@
+console.clear()
 fetch("https://google.com", {
-    "Access-Control-Allow-Origin": "*"
+    method : "GET",
+    headers: { "Access-Control-Allow-Origin": "*" }
 
 }).then(r => r.text()).then(t => console.log(t))
